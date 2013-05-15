@@ -1,26 +1,130 @@
 
 
 
-
-
 var jsonData = [];
-var current_lang ='en';
+
 var host = $('#base_directory').text();
+
 
 shuffle = function(o){ 
 	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
 	return o;
 };
 
+function get_url_params(param){	
+	var t = location.search.substring(1).split('&');
+	var f = [];
+	for (var i=0; i<t.length; i++){
+		var x = t[ i ].split('=');
+		f[x[0]]=x[1];
+	}
+	return f[param];
+
+}
+
+var current_lang = get_url_params('lang');
+
+
+ 
 
 $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
-	
+
+
+	//--------------JSON:vote header------------------------------
 	$('#vote-header').append(data.html_values['vote-header']);
+
+	//-------------JSON:suggested priority-----------------------
 
 	$('#priority-item-title').append(data.html_values['priority-item-title']);
 
 	$('#priority-item-content').attr('placeholder',data.various_values['priority-item-content']);
 
+	//-----------JSON: Personal Info DropDown----------------------
+	$('#dropdowns-title').text(data.html_values['dropdowns-title']);
+	$('#dropdowns-content').text(data.html_values['dropdowns-content']);
+
+				//--- GENDER----//
+	$('#dropdowns-gender-label').text(data.html_values['dropdowns-gender-label']);
+     var gender_dropdowns = data.fields_values['gender'];
+     var output_gender ='';
+     
+     var j=0;
+     for(j=0;j<gender_dropdowns.length;j++){
+     	
+     	output_gender+='<option value="'+gender_dropdowns[j].id +'">'+gender_dropdowns[j].ballot_gender+'</option>'
+
+     }
+
+     $('#gender-dropdown').append(output_gender);
+     if(current_lang=='kr' || current_lang=='ar'){
+     	$('#gender-dropdown').css('float','none');
+     }
+
+     			//--- AGE----//
+	$('#dropdowns-age-label').text(data.html_values['dropdowns-age-label']);
+     var age_dropdowns = data.fields_values['age'];
+     var output_age ='';
+     
+     var k=0;
+     for(k=0;k<=140;k++){
+     	
+     	if(k==0){
+     	output_age+='<option value="'+age_dropdowns[k].id +'">'+age_dropdowns[k].name+'</option>'
+	     }else{
+	     	output_age+='<option value="'+k+'">'+k+'</option>'
+	     }
+
+
+     }
+
+     $('#age-dropdown').append(output_age);
+     if(current_lang=='kr' || current_lang=='ar'){
+     	$('#age-dropdown').css('float','none');
+     }
+
+
+     			//--COUNTRY---//
+     $('#dropdowns-country-label').text(data.html_values['dropdowns-country-label']);
+     var countries_dropdowns = data.fields_values['countries'];
+     var output_countries ='';
+     
+     var l=0;
+     for(l=0;l<countries_dropdowns.length;l++){
+     	
+     	output_countries+='<option value="'+countries_dropdowns[l].id +'">'+countries_dropdowns[l].name+'</option>'
+
+     }
+
+     $('#countries-dropdown').append(output_countries);
+     if(current_lang=='kr' || current_lang=='ar'){
+     	$('#countries-dropdown').css('float','none');
+     }
+
+     			//--EDUCATION---//
+      $('#dropdowns-education-label').text(data.html_values['dropdowns-education-label']);
+     var education_dropdowns = data.fields_values['education'];
+     var output_education ='';
+     
+     var m=0;
+     for(m=0;m<education_dropdowns.length;m++){
+     	
+     	output_education+='<option value="'+education_dropdowns[m].id +'">'+education_dropdowns[m].name+'</option>'
+
+     }
+
+     $('#education-dropdown').append(output_education);
+     if(current_lang=='kr' || current_lang=='ar'){
+     	$('#education-dropdown').css('float','none');
+     }
+
+     		//---------OATH-------//
+     $('#dropdowns-oath').append(data.html_values['dropdowns-oath']);
+
+
+
+
+
+   //------- ACCORDION RANDOM GENERATION ---------//
     var items = data.accordion_items;
     var numbers = [
         1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
@@ -43,6 +147,15 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
 
      
     $('div.accordion.vote-form').prepend(output);
+    if (current_lang=='ar') {
+    	
+    	$('div.accordion h3 a,div.accordion ul, div.suggest-priority h4 a,div.suggest-priority article textarea,#dropdowns-content,#dropdowns-title').css({"text-align":"right","direction":"rtl"});
+    	$('#dropdowns-title,#dropdowns-content').css('font-size','16px');
+    	$('#gender-dropdown,#age-dropdown,#education-dropdown,#countries-dropdown,#dropdowns-oath').css({"direction": "rtl", "text-align": "right", "float": "right", "margin-top": "0px"});
+    	
+    	
+
+    };
     
 
     jsonData = data;
@@ -54,6 +167,7 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
 function docready(){
 	$(document).ready(function(){
 
+             
 		     var count=0;
 
 		    /*------- ACCORDION: switch "arrows up and down" & "plus/minus sign" --------------*/

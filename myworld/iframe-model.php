@@ -30,8 +30,48 @@ Template Name: Iframe-model
 						<textarea id="priority-item-content" placeholder=""></textarea>
 					</article>
 			</div>
+            
+            <br>
+		    <section class="dropdowns-wrap">
+		    	<section class="dropdowns-wrap-inner">
+		    		<p id="dropdowns-title"></p>
+		    		<p id="dropdowns-content"></p>
+		    		<section id="dropdown-area" class="row" style="margin-bottom: 20px">
+								<label for="gender-dropdown" id="dropdowns-gender-label" class="hidden-mobile"></label>
+								<select name="gender-dropdown" id="gender-dropdown" class="gender-dropdown"></select>
+								
 
-		
+								<label for="age-dropdown" id="dropdowns-age-label" class="hidden-mobile"></label>
+								<select name="age-dropdown" id="age-dropdown" class="age-dropdown"></select>
+							
+
+								<label for="countries-dropdown" id="dropdowns-country-label" class="hidden-mobile"></label>
+								<select name="countries-dropdown" id="countries-dropdown" class="countries-dropdown"></select>
+								
+
+								<label for="education-dropdown" id="dropdowns-education-label" class="hidden-mobile"></label>
+								<select name="education-dropdown" id="education-dropdown" class="education-dropdown"></select>
+					</section>
+					<br><br>
+				    <p id="dropdowns-oath" style=""></p>	
+				    <section class="row submit-btn-wrap" style="margin-bottom: 0">
+								<span style="display: block; height: 50px; margin: 0px auto; position: relative; width: 262px;">
+
+									<input type="button" value="" name="submit-btn" id="submit-btn" class=" btn-active vote-ar" style="">
+								</span>
+					</section>	
+
+					<section style="height: 80px;">
+					<p id="validation-message" class="validation-message" style="word-wrap:break-word;margin-top:5px;margin-bottom:5px">
+					Due to recent growth, we are actively seeking a mid-level PHP Developer to join our team in Shrewsbury, NJ for a full time role! The ideal candidate will be looking to expand their skills set in developing Web Applications on a LAMP environment. We provide an excellent work environment and promote independent thought and creative expression. 
+					</p>
+					</section>
+
+		    	</section>
+		    </section>
+
+		   
+
 		
 
 
