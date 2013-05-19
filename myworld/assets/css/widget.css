@@ -9,6 +9,9 @@ body {
 
 /*----- Accordions ------*/
 
+span.check-wrap{
+    position: relative;
+}
 
 
 
@@ -280,7 +283,7 @@ div.suggest-priority h4 a{
 }
 
 #gender-dropdown, #age-dropdown, #countries-dropdown, #education-dropdown{
-	width: 120px;
+	width: 200px;
 }
 
 #gender-dropdown, #age-dropdown, #countries-dropdown, #education-dropdown {
@@ -403,3 +406,17 @@ div.suggest-priority h4 a{
     font-size: 18px;
     text-align: center;
 }
+
+
+
+.promo{
+
+                opacity: 0;
+                color: red;
+                top:0;
+                position:absolute;
+                right: -13px;
+                /*transform: rotate(20deg);*/
+                background-color: yellow;
+                border: solid 2px;
+            }

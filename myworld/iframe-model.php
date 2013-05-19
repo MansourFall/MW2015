@@ -15,6 +15,9 @@ Template Name: Iframe-model
 		<p id="base_directory" style="display:none"><?php echo  bloginfo('stylesheet_directory'); ?></p>
 		
 		
+			
+
+
 			<a href="http://myworld2015.org"><img src="<?php bloginfo('stylesheet_directory');?>/assets/img/logo.png" alt="" class="widget_logo" ></a>
 			<br>
 			<header class="vote-header-wrap" style="margin-bottom: 0;">
@@ -62,7 +65,7 @@ Template Name: Iframe-model
 								</span>
 					</section>	
 
-					<section style="height: 80px;">
+					<section style="height: 80px;display:none">
 					<p id="validation-message" class="validation-message" style="word-wrap:break-word;margin-top:5px;margin-bottom:5px">
 					</p>
 					</section>

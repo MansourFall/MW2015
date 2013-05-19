@@ -152,7 +152,7 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
     for(i = 0; i<random_numbers.length; i++){
         var accordion_item = items[random_numbers[i]];
         
-       output += '<h3 > <span class="box arrow-down" style="background-color: '+accordion_item['item-color']+'">  </span> <a id="'+accordion_item['prefix']+'-item-title" href="#">'+accordion_item['item-title']+'</a>  <span class="check-wrap checked-off"> <input type="checkbox" class="check-value" name="check-values[]" value="'+random_numbers[i]+'"> </span></h3> <article> <ul><li>'+accordion_item['item-content']+'</li></ul></article>';
+       output += '<h3> <span class="box arrow-down" style="background-color: '+accordion_item['item-color']+'">  </span> <a id="'+accordion_item['prefix']+'-item-title" href="#">'+accordion_item['item-title']+'</a>  <span class="check-wrap checked-off"> <input type="checkbox" class="check-value" name="check-values[]" value="'+random_numbers[i]+'"></span></h3> <article> <ul><li>'+accordion_item['item-content']+'</li></ul></article>';
     
 
 
@@ -161,11 +161,14 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
 
      
     $('div.accordion.vote-form').prepend(output);
+
+
+    //---- LANGUAGE-SPECIFIC ADJUSTEMENTS-----//
     if (current_lang=='ar') {
     	
     	$('div.accordion h3 a,div.accordion ul, div.suggest-priority h4 a,div.suggest-priority article textarea,#dropdowns-content,#dropdowns-title').css({"text-align":"right","direction":"rtl"});
     	$('#dropdowns-title,#dropdowns-content').css('font-size','16px');
-        $('#gender-dropdown,#education-dropdown,#countries-dropdown,#age-dropdown').css({'float':'right','margin-left':'400px','text-align':'right','direction':'rtl'});
+        $('#gender-dropdown,#education-dropdown,#countries-dropdown,#age-dropdown').css({'float':'right','margin-right':'20px','margin-left':'auto','text-align':'right','direction':'rtl'});
         $('#dropdowns-oath').css({"text-align":"right","direction":"rtl"});
         $('.submit-btn-wrap').css('text-align','right');
         $('.submit-btn-wrap').children('span').css('display','inline');
@@ -175,7 +178,18 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
     	    	
     	
 
-    };
+    }else if(current_lang=='fr'){
+         $('#vote-header').children('span').prepend('<br>');   
+    }else if(current_lang=='kr'){
+        $('.vote-header-wrap').css('font-size','20px');
+    }else if(current_lang=='ru'){
+        $('.vote-header-wrap').css('font-size','22px');
+    }else if(current_lang=='th'){
+        $('.vote-header-wrap').css('font-size','20px');
+    }else if(current_lang=='vt'){
+        $('.vote-header-wrap').css('font-size','21px');
+    }
+
     
 
     jsonData = data;
@@ -230,7 +244,8 @@ function docready(){
 
 
 		     /*------ ACCORDION: set as "checked-on" or "checked-off" --------*/
-		     $('.accordion h3 .check-wrap').click(function (e) {
+		     $('span.check-wrap').click(function (event) {
+                event.stopPropagation();
 
 	            if($(this).hasClass('checked-on')) {
 	                $(this).closest('h3').find('.check-value').attr('checked', false);
@@ -247,13 +262,17 @@ function docready(){
 	                count++;
 	            }
 
-	            alert(count+'/6');
+	            //alert(count+'/6');
             
             });
 
              /*---- DISPLAY PROPER SUBMIT BUTTON-------*/
             
                 $('#submit-btn').addClass('vote-'+current_lang);
+
+                
+
+            
             
 
              
