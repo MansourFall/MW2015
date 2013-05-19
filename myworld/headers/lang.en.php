@@ -32,6 +32,7 @@
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/assets/css/style.css">
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/assets/css/tabs.css">
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/viz/postvoteviz.css">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/assets/icons/favicon_16.png">
@@ -44,11 +45,12 @@
 		<script type="text/javascript" src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
 		
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/assets/js/jquery-outside.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/assets/js/script.js"></script>
-		<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/assets/js/accordion.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/assets/js/accordion-main.js"></script>
+		
 		
 		<!-- Google Analytics -->
 		<script type="text/javascript">
@@ -134,8 +136,12 @@
 								<a id="existing-partners-item" href="<?php echo $base_url; ?>/partners/">Existing Partners</a>
 							</li>
 							<li>
+								<a id="register-item" href="http://ec2-23-22-13-62.compute-1.amazonaws.com/dataset/">Data Set</a>
+							</li>
+							<li>
 								<a id="register-item" href="http://partner.myworld2015.org/">Register as a Partner</a>
 							</li>
+							
 							
 						</ul>
 					</li>
@@ -227,6 +233,9 @@
 							</li>
 							<li>
 								<a id="campus-item" href="<?php echo $base_url; ?>/campus-program/">Campus Program</a>
+							</li>
+							<li>
+								<a id="register-item" href="http://ec2-23-22-13-62.compute-1.amazonaws.com/dataset/">Data Set</a>
 							</li>
 							<li>
 								<a id="existing-partners-item" href="<?php echo $base_url; ?>/partners/">Existing Partners</a>

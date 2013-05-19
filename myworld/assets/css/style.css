@@ -1245,7 +1245,7 @@ button:disabled {
 }
 
 ul.list-extra-pages li {
-    padding-bottom: 10px;
+    padding-bottom: 0;
     font-weight: 300;
 }
 
@@ -2733,6 +2733,22 @@ div.accordion ul li a:hover{
 background-color: #FCB749
 }
 
+.color-organizations{
+background-color: #FBE792;
+}
+
+.color-students{
+ background-color: #DEC0CA;
+}
+
+.color-individuals{
+	 background-color: #7CB5D6;
+}
+
+
+.resource-header{
+	font-size:1.2em;
+}
 
 div.accordion h3 a {
 	
@@ -2748,6 +2764,13 @@ div.accordion h3 a {
     color: #000000;
 }
 
+div.accordion article.accordion-content ul li a.highlighted-link{
+	color:blue;
+}
+
+ul#individuals li,ul#organizations li{
+	margin-left:24px;
+}
 
 
 }
@@ -2874,7 +2897,7 @@ a#logo_simple img{
 
 ul.list-extra-pages li {
     font-weight: 300;
-    padding-bottom: 10px;
+    padding-bottom: 0;
 }
 
 .resource-header-guide{
@@ -3272,6 +3295,23 @@ div.accordion ul li a:hover{
 background-color: #FCB749
 }
 
+.color-organizations{
+background-color: #FBE792;
+}
+
+.color-students{
+ background-color: #DEC0CA;
+}
+
+.color-individuals{
+	 background-color: #7CB5D6;
+}
+
+
+
+.resource-header{
+	font-size:1.2em;
+}
 
 div.accordion h3 a {
 	
@@ -3287,8 +3327,13 @@ div.accordion h3 a {
     color: #000000;
 }
 
+div.accordion article.accordion-content ul li a.highlighted-link{
+	color:blue;
+}
 
-
+ul#individuals li,ul#organizations li{
+	margin-left:24px;
+}
 
 
 

@@ -1,7 +1,7 @@
 Below is a list of committed partners who are working with us to take the MY World survey out into their communities:<br><br>
 <div class="accordion">
 <h3><span  class="box arrow-down active-box color-blue"></span><a href="#">UN Agencies</a></h3>
-<article>
+<article class="accordion-content" style="display:none">
 
 <ul>
 <li><a href='#'>Office of the UN Resident Coordinator</a></li>
@@ -45,7 +45,7 @@ Below is a list of committed partners who are working with us to take the MY Wor
 
 </article>
 <h3><span class="box arrow-down color-green"></span><a href="#">Civil Society</a></h3>
-<article>
+<article class="accordion-content" style="display:none">
 
 <ul>
  <li><a href='http://www.abc4all.net'>ABC4All</a></li>
@@ -379,7 +379,7 @@ Below is a list of committed partners who are working with us to take the MY Wor
 
 </article>
 <h3><span class="box  arrow-down  color-yellow"></span><a href="#">Private Sector</a></h3>
-<article>
+<article class="accordion-content" style="display: none">
 
 <ul>
 <li><a href='http://www.pg.com'>Procter & Gamble</a></li>

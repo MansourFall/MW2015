@@ -18,11 +18,17 @@ function get_url_params(param){
 		var x = t[ i ].split('=');
 		f[x[0]]=x[1];
 	}
+    i
+
 	return f[param];
 
 }
 
 var current_lang = get_url_params('lang');
+
+ if(typeof current_lang === 'undefined'){
+  current_lang='en';
+ };
 
 
  
@@ -120,6 +126,14 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
      		//---------OATH-------//
      $('#dropdowns-oath').append(data.html_values['dropdowns-oath']);
 
+            //------JSON: VALIDATION MESSAGE------//
+      $('#validation-message').append(data.html_values['validation-message']);
+
+
+
+
+
+
 
 
 
@@ -151,8 +165,14 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
     	
     	$('div.accordion h3 a,div.accordion ul, div.suggest-priority h4 a,div.suggest-priority article textarea,#dropdowns-content,#dropdowns-title').css({"text-align":"right","direction":"rtl"});
     	$('#dropdowns-title,#dropdowns-content').css('font-size','16px');
-    	$('#gender-dropdown,#age-dropdown,#education-dropdown,#countries-dropdown,#dropdowns-oath').css({"direction": "rtl", "text-align": "right", "float": "right", "margin-top": "0px"});
-    	
+        $('#gender-dropdown,#education-dropdown,#countries-dropdown,#age-dropdown').css({'float':'right','margin-left':'400px','text-align':'right','direction':'rtl'});
+        $('#dropdowns-oath').css({"text-align":"right","direction":"rtl"});
+        $('.submit-btn-wrap').css('text-align','right');
+        $('.submit-btn-wrap').children('span').css('display','inline');
+        $('#submit-btn').css({"text-align":"right","direction":"rtl"});
+        $('#validation-message').css({'text-align':'right','direction':'rtl','font-size':'18px'});
+        
+    	    	
     	
 
     };
@@ -163,6 +183,14 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
      docready();
 
 });
+
+
+
+
+
+
+
+
 
 function docready(){
 	$(document).ready(function(){
@@ -222,6 +250,13 @@ function docready(){
 	            alert(count+'/6');
             
             });
+
+             /*---- DISPLAY PROPER SUBMIT BUTTON-------*/
+            
+                $('#submit-btn').addClass('vote-'+current_lang);
+            
+
+             
 
 	     
    });
