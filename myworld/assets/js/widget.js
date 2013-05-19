@@ -11,6 +11,8 @@ shuffle = function(o){
 	return o;
 };
 
+
+
 function get_url_params(param){	
 	var t = location.search.substring(1).split('&');
 	var f = [];
@@ -23,6 +25,29 @@ function get_url_params(param){
 	return f[param];
 
 }
+
+
+
+
+
+function validate(){
+    var values = [
+    ];
+
+    $('.check-value:checked').each(function () {
+        values.push($(this).val());
+    });
+
+    if(values.length == 6 && $('#countries-dropdown').val() !== '' && $('#age-dropdown').val() !== '' && $('#gender-dropdown').val() !== '' && $('#education-dropdown').val() !== '') {
+        $('#validation-message').fadeOut(400);//in case there was a previous error message
+        return 0;
+    }else{
+        return 1;
+    }
+}
+
+
+
 
 var current_lang = get_url_params('lang');
 
@@ -129,6 +154,10 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
             //------JSON: VALIDATION MESSAGE------//
       $('#validation-message').append(data.html_values['validation-message']);
 
+           //---JSON: COUNTER -----//
+      side_count_more=data.html_values['side-count-more'];
+      //alert(side_count_more);
+
 
 
 
@@ -152,7 +181,7 @@ $.getJSON(host + '/assets/js/langs/' + current_lang + '.json', function (data) {
     for(i = 0; i<random_numbers.length; i++){
         var accordion_item = items[random_numbers[i]];
         
-       output += '<h3> <span class="box arrow-down" style="background-color: '+accordion_item['item-color']+'">  </span> <a id="'+accordion_item['prefix']+'-item-title" href="#">'+accordion_item['item-title']+'</a>  <span class="check-wrap checked-off"> <input type="checkbox" class="check-value" name="check-values[]" value="'+random_numbers[i]+'"></span></h3> <article> <ul><li>'+accordion_item['item-content']+'</li></ul></article>';
+       output += '<h3> <span class="box arrow-down" style="background-color: '+accordion_item['item-color']+'">  </span> <a id="'+accordion_item['prefix']+'-item-title" href="#">'+accordion_item['item-title']+'</a>  <span class="check-wrap checked-off"> <input type="checkbox" class="check-value" name="check-values[]" value="'+random_numbers[i]+'"><span class="promo"></span></span></h3> <article> <ul><li>'+accordion_item['item-content']+'</li></ul></article>';
     
 
 
@@ -253,7 +282,7 @@ function docready(){
 	                count--;
 	            }else{
 	                if(count == 6) {
-	                	alert('You already have 6 priorities checked!');
+	                	//alert('You already have 6 priorities checked!');
 	                    return;
 	                }
 
@@ -262,13 +291,28 @@ function docready(){
 	                count++;
 	            }
 
-	            //alert(count+'/6');
-            
+
+                $('.promo').empty();
+                
+	            $('.promo').append('<p id="total" style="font-size:32px;">'+count+'/6</p>');
+
+
             });
 
              /*---- DISPLAY PROPER SUBMIT BUTTON-------*/
             
                 $('#submit-btn').addClass('vote-'+current_lang);
+
+                /*--------Counter messages------------------*/
+                $('.check-wrap').on('click',function(){
+
+                $(this).find('.promo').animate({'opacity':'1','top':'-2px'},'3000');
+               
+                });
+
+               $('.check-wrap').on('mouseleave',function(){
+                    $(this).find('.promo').animate({'opacity':'0','top':'0'},'1500');
+                });
 
                 
 
