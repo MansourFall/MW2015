@@ -136,7 +136,7 @@
 								<a id="existing-partners-item" href="<?php echo $base_url; ?>/partners/">Existing Partners</a>
 							</li>
 							<li>
-								<a id="register-item" href="http://ec2-23-22-13-62.compute-1.amazonaws.com/dataset/">Data Set</a>
+								<a id="register-item" href="<?php echo $data_set_page_link ?>">Data Set</a>
 							</li>
 							<li>
 								<a id="register-item" href="http://partner.myworld2015.org/">Register as a Partner</a>
@@ -235,7 +235,7 @@
 								<a id="campus-item" href="<?php echo $base_url; ?>/campus-program/">Campus Program</a>
 							</li>
 							<li>
-								<a id="register-item" href="http://ec2-23-22-13-62.compute-1.amazonaws.com/dataset/">Data Set</a>
+								<a id="register-item" href="<?php echo $data_set_page_link ?>">Data Set</a>
 							</li>
 							<li>
 								<a id="existing-partners-item" href="<?php echo $base_url; ?>/partners/">Existing Partners</a>

@@ -30,21 +30,6 @@ function get_url_params(param){
 
 
 
-function validate(){
-    var values = [
-    ];
-
-    $('.check-value:checked').each(function () {
-        values.push($(this).val());
-    });
-
-    if(values.length == 6 && $('#countries-dropdown').val() !== '' && $('#age-dropdown').val() !== '' && $('#gender-dropdown').val() !== '' && $('#education-dropdown').val() !== '') {
-        $('#validation-message').fadeOut(400);//in case there was a previous error message
-        return 0;
-    }else{
-        return 1;
-    }
-}
 
 
 
@@ -303,7 +288,7 @@ function docready(){
             
                 $('#submit-btn').addClass('vote-'+current_lang);
 
-                /*--------Counter messages------------------*/
+            /*-----------Counter messages------------------*/
                 $('.check-wrap').on('click',function(){
 
                 $(this).find('.promo').animate({'opacity':'1','top':'-2px'},'3000');
@@ -314,8 +299,38 @@ function docready(){
                     $(this).find('.promo').animate({'opacity':'0','top':'0'},'1500');
                 });
 
-                
 
+
+         //**************************** SUBMIT VOTES ***************************//
+         $('#submit-btn').on('click',function(){
+            if(validate()===1){
+                alert('bad');
+            }else{
+                alert('good');
+            }
+
+
+
+         });
+
+                
+      
+        function validate(){
+            var values = [
+            ];
+
+            $('.check-value:checked').each(function () {
+                values.push($(this).val());
+            });
+
+            if(values.length == 6 && $('#countries-dropdown').val() !== '' && $('#age-dropdown').val() !== '' && $('#gender-dropdown').val() !== '' && $('#education-dropdown').val() !== '') {
+                $('#validation-message').fadeOut(400);//in case there was a previous error message
+                return 0;
+            }else{
+                $('#validation-message').fadeOut(400);
+                return 1;
+            }
+        }
             
             
 
