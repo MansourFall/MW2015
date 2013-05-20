@@ -6,6 +6,7 @@ var jsonData = [];
 var host = $('#base_directory').text();
 
 
+
 shuffle = function(o){ 
 	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
 	return o;
@@ -25,11 +26,6 @@ function get_url_params(param){
 	return f[param];
 
 }
-
-
-
-
-
 
 
 
@@ -302,16 +298,82 @@ function docready(){
 
 
          //**************************** SUBMIT VOTES ***************************//
+
+
          $('#submit-btn').on('click',function(){
-            if(validate()===1){
-                alert('bad');
+
+            //---validate user inputs-----//
+            $('#validation-message').hide('fast');
+
+            if(validate()===0){
+                $('#validation-message').show('slow');
             }else{
-                alert('good');
+                //--get priorities---//
+                var choices_array = [
+                ];
+                $('.check-value[checked=checked]').each(function (index, element) {
+                    choices_array[index] = $(element).val();
+                });
+                alert(choices_array);
+
+                //---get user info-----//
+                var gender = $('#gender-dropdown :selected').val();
+                var age = $('#age-dropdown :selected').val();
+                var country = $('#countries-dropdown :selected').val();
+                var education = $('#education-dropdown :selected').val();
+
+                alert('gender: '+gender+ ';age: '+age+';country: '+country+';education: '+education);
+
+                //--get suggested_priorities---//
+                var suggested_priority = $('#priority-item-content').val();
+                alert('suggested priorities: '+suggested_priority);
+
+
+                //---- submit vote ----//
+                  var api_url = "https://apps.myworld2015.org/vote.php",
+                  
+                  vote_data = {
+                    "key": "jshyRODMohqnJDDOuLh04d4e",
+                    "country": country,
+                    "gender": gender,
+                    "suggested_priority": suggested_priority,
+                    "education": education,
+                    "age": age,
+                    "votes": choices_array,
+                    "test": 1
+                  };
+
+                $.ajax({
+                  type: "POST",
+                  url: api_url,
+                  data: JSON.stringify(vote_data),
+                  success: function(response) {
+                    returnedData = JSON.parse(response);
+                    console.log(returnedData);
+                  },
+                  error: function(error) {
+                    console.log("There was an error");
+                    console.log(error);
+                  }
+                }); 
+
+
+                alert('thanks for voting');
+
+
+                
+
             }
+        });
+
+            
 
 
+            
 
-         });
+            
+
+
 
                 
       
@@ -324,11 +386,9 @@ function docready(){
             });
 
             if(values.length == 6 && $('#countries-dropdown').val() !== '' && $('#age-dropdown').val() !== '' && $('#gender-dropdown').val() !== '' && $('#education-dropdown').val() !== '') {
-                $('#validation-message').fadeOut(400);//in case there was a previous error message
-                return 0;
-            }else{
-                $('#validation-message').fadeOut(400);
                 return 1;
+            }else{
+                return 0;
             }
         }
             
