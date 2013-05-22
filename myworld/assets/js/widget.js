@@ -28,7 +28,7 @@ function get_url_params(param){
 }
 
 
-
+var partnerID = get_url_params('partner');
 
 var current_lang = get_url_params('lang');
 
@@ -314,26 +314,24 @@ function docready(){
                 $('.check-value[checked=checked]').each(function (index, element) {
                     choices_array[index] = $(element).val();
                 });
-                alert(choices_array);
-
+                
                 //---get user info-----//
                 var gender = $('#gender-dropdown :selected').val();
                 var age = $('#age-dropdown :selected').val();
                 var country = $('#countries-dropdown :selected').val();
                 var education = $('#education-dropdown :selected').val();
 
-                alert('gender: '+gender+ ';age: '+age+';country: '+country+';education: '+education);
-
+                
                 //--get suggested_priorities---//
                 var suggested_priority = $('#priority-item-content').val();
-                alert('suggested priorities: '+suggested_priority);
-
+                
 
                 //---- submit vote ----//
                   var api_url = "https://apps.myworld2015.org/vote.php",
                   
                   vote_data = {
                     "key": "jshyRODMohqnJDDOuLh04d4e",
+                    "partner": partnerID,
                     "country": country,
                     "gender": gender,
                     "suggested_priority": suggested_priority,
@@ -358,7 +356,7 @@ function docready(){
                 }); 
 
 
-                alert('thanks for voting');
+                alert('Thanks for voting');
 
 
                 
@@ -367,13 +365,6 @@ function docready(){
         });
 
             
-
-
-            
-
-            
-
-
 
                 
       

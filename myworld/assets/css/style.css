@@ -2620,18 +2620,12 @@ ol.ordered-list-extra-pages li {
 
 
 .resource-header-guide{
-	background-color: #428CE1;
-    border-radius: 3px 3px 3px 3px;
-    color: #FFFFFF;
-    border-right:solid;
+	font-weight:bold;
 	
 }
 
 .resource-header-ballot{
-	background-color: #428CE1;
-    border-radius: 3px 3px 3px 3px;
-    color: #FFFFFF;
-    border-left:solid;
+	font-weight:bold;
 	
 }
 
@@ -2643,10 +2637,17 @@ ol.ordered-list-extra-pages li {
 }
 
 .resource-content{
-	background-color: #FFFFFF;
-    border: 2px solid #E3E3E3;
-    padding:5px;"
+	padding:5px;"
 }
+
+.ui-widget{
+	font-size:0.8em !important;
+}
+
+.ui-widget p{
+	border:none !important;
+}
+
 
 
 /*----- Accordions ------*/
@@ -2677,10 +2678,11 @@ div.accordion ul{
     line-height: 26px;
 }
 
-div.accordion ul li{
+div.accordion ul.partner-list li,div.accordion ul li.no-list-style{
     list-style: none outside none;
+    margin-left:0 !important;
     
- }
+}
 
 
 div.accordion ul li a{
@@ -2773,7 +2775,75 @@ ul#individuals li,ul#organizations li{
 }
 
 
+#widget-height-field,#widget-partnerID-field{
+	border: 1px solid;
+    padding: 2px;
+    
 }
+
+#widget-height-field{
+	width: 80px;
+}
+
+#widget-partnerID-field{
+	width: 280px;
+}
+
+
+#widget-language-dropdown{
+	background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 3px 3px 3px 3px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 11px;
+    outline: medium none;
+    padding: 5px;
+}
+
+#widget-language-wrap{
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+#widget-form-main-wrap{
+	display:inline-block;
+}
+
+#result-window-frame{
+	border: 1px solid blue;
+    display: inline-block;
+    float: right;
+    height: 130px;
+    width: 50%;
+    padding:10px;
+    word-wrap:break-word;
+		
+}
+
+#generate{
+	font-size: 16px;
+    height: 32px;
+    width: 108px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2865,7 +2935,12 @@ a#logo_simple img{
     width: 100%;
 }
 
-
+.methodology-header {
+    color: #418ADD;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 22px;
+}
 
 .page-wrap header {
     background-color: #428CE1;
@@ -2901,18 +2976,12 @@ ul.list-extra-pages li {
 }
 
 .resource-header-guide{
-	background-color: #428CE1;
-    border-radius: 3px 3px 3px 3px;
-    color: #FFFFFF;
-    border-right:solid;
+	font-weight:bold;
 	
 }
 
 .resource-header-ballot{
-	background-color: #428CE1;
-    border-radius: 3px 3px 3px 3px;
-    color: #FFFFFF;
-    border-left:solid;
+	font-weight:bold;
 	
 }
 
@@ -2924,11 +2993,17 @@ ul.list-extra-pages li {
 }
 
 .resource-content{
-	background-color: #FFFFFF;
-    border: 2px solid #E3E3E3;
     padding:5px;"
 }
 
+
+.ui-widget{
+	font-size:0.8em !important;
+}
+
+.ui-widget p{
+	border:none !important;
+}
 
 /* FOOTER */
 #teaser-content, #thank-you-title, #about-title {
@@ -3239,8 +3314,9 @@ div.accordion ul{
     line-height: 26px;
 }
 
-div.accordion ul li{
+div.accordion ul.partner-list li,div.accordion ul li.no-list-style{
     list-style: none outside none;
+    margin-left:0 !important;
     
 }
 
@@ -3336,5 +3412,78 @@ ul#individuals li,ul#organizations li{
 }
 
 
+
+/*--- widget creator ---*/
+
+.methodology-main-header {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: none;
+}
+
+#widget-height-field{
+	width: 80px;
+}
+
+#widget-partnerID-field{
+	width: 280px;
+}
+
+
+#widget-language-dropdown{
+	background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 3px 3px 3px 3px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 11px;
+    outline: medium none;
+    padding: 5px;
+}
+
+#widget-language-wrap{
+	padding-top:10px;
+	padding-bottom:20px;
+}
+
+#widget-form-main-wrap{
+	display:block;
+	
+}
+
+
+#widget-height-field, #widget-partnerID-field {
+    border: 1px solid;
+    padding: 2px;
+}
+
+#widget-partnerID-field {
+    width: 280px;
+}
+
+#widget-height-field {
+    width: 80px;
+}
+
+#result-window-frame{
+	border: 1px solid blue;
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    min-width: 280px;
+    padding: 10px;
+    width: 50%;
+    word-wrap:break-word;
+		
+}
+
+#generate{
+	font-size: 16px;
+    height: 32px;
+    width: 108px;
+}
 
 }

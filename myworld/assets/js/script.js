@@ -61,6 +61,17 @@ $(document).ready(function(){
 			    $("#register-item").toggleClass("hover-state");
 			  });
 
+		  $("#ballot-widget-item").hover(function(){
+			    $("#ballot-widget-item").toggleClass("hover-state");
+			  });
+		  $("#partnerID-tooltip").hover(function(){
+			    $("#partnerID-tooltip").toggleClass("hover-state");
+			  });
+		  $("#widget-height-tooltip").hover(function(){
+			    $("#widget-height-tooltip").toggleClass("hover-state");
+			  });
+		  
+
 
 
 

@@ -135,6 +135,11 @@
 							<li>
 								<a id="existing-partners-item" href="<?php echo $base_url; ?>/partners/">Existing Partners</a>
 							</li>
+							
+							<li>
+								<a id="ballot-widget-item" href="<?php echo $base_url; ?>/widget-creator/">Ballot Widget</a>
+							</li>
+							
 							<li>
 								<a id="register-item" href="<?php echo $data_set_page_link ?>">Data Set</a>
 							</li>
@@ -234,12 +239,19 @@
 							<li>
 								<a id="campus-item" href="<?php echo $base_url; ?>/campus-program/">Campus Program</a>
 							</li>
-							<li>
-								<a id="register-item" href="<?php echo $data_set_page_link ?>">Data Set</a>
-							</li>
+							
 							<li>
 								<a id="existing-partners-item" href="<?php echo $base_url; ?>/partners/">Existing Partners</a>
 							</li>
+							
+							<li>
+								<a id="ballot-widget-item" href="<?php echo $base_url; ?>/widget-creator/">Ballot Widget</a>
+							</li>
+							
+							<li>
+								<a id="register-item" href="<?php echo $data_set_page_link ?>">Data Set</a>
+							</li>
+							
 							<li>
 								<a id="register-item" href="http://partner.myworld2015.org/">Register as a Partner</a>
 							</li>
